@@ -9,7 +9,8 @@ export default class LineItem {
     constructor (product, quantity){
         this.product = product;
         this.quantity = quantity;
-        this.total = Math.round(this.quantity * this.product.price);
+        //Méthode pour arrondir à deux chiffres après la virgule
+        this.total = parseFloat((this.quantity * this.product.price).toFixed(2));
     }
 
     toCartHtml(){
@@ -20,8 +21,9 @@ export default class LineItem {
         const descCartHtml = document.createElement('p');
         const priceCartHtml = document.createElement('p');
         const playWithQuantity = document.createElement('div');
-        const quantityHtml = document.createElement('p');
         const btnRemoveQuantity = document.createElement('button');
+        const quantityHtml = document.createElement('p');
+        const btnAddQuantity = document.createElement('button');
 
         imgCartHtml.setAttribute('src', this.product.img);
         imgCartHtml.setAttribute('alt', this.product.title);
@@ -30,29 +32,43 @@ export default class LineItem {
         priceCartHtml.textContent = '$' + this.product.price;
         btnRemoveQuantity.textContent = '-';
         quantityHtml.textContent = this.quantity;
+        btnAddQuantity.textContent = '+';
 
-        imgCartHtml.className = 'w-[100px]'
-        btnRemoveQuantity.className = 'btn-remove';
+        divCart.className = 'flex gap-3 p-3 items-center border-b order-1';
+        imgCartHtml.className = 'w-[80px]';
+        divTextCartHtml.className = '';
+        nameCartHtml.className = 'font-bold text-lg';
+        descCartHtml.className = 'italic text-sm';
+        priceCartHtml.className = 'font-bold';
+        playWithQuantity.className = 'flex gap-6 mt-2'
+        btnRemoveQuantity.className = 'btn-remove font-bold text-lg border px-2 rounded-full transition-all duration-300 hover:bg-orange';
+        quantityHtml.className = 'quantity';
+        btnAddQuantity.className = 'btn-add font-bold text-lg border px-2 rounded-full transition-all duration-300 hover:bg-orange';
 
         btnRemoveQuantity.addEventListener('click', () => {
             this.removeFromCart();
         });
+
+        //À FAIRE
+/*         btnAddQuantity.addEventListener('click', () => {
+            this.addFromCart();
+        }); */
 
         divCart.appendChild(imgCartHtml);
         divCart.appendChild(divTextCartHtml);
         divTextCartHtml.appendChild(nameCartHtml);
         divTextCartHtml.appendChild(descCartHtml);
         divTextCartHtml.appendChild(priceCartHtml);
-        divCart.appendChild(playWithQuantity);
-        playWithQuantity.appendChild(quantityHtml);
+        divTextCartHtml.appendChild(playWithQuantity);
         playWithQuantity.appendChild(btnRemoveQuantity);
+        playWithQuantity.appendChild(quantityHtml);
+        playWithQuantity.appendChild(btnAddQuantity);
 
         //Pris sur internet
     this.element = divCart;
     return divCart;
     };
 
-    //Reste à ajouter une condition si l'article est déjà présent, ajuster la quantité
     //Pris sur internet
     removeFromCart() {
         if (this.element && this.element.parentNode) {

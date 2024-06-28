@@ -15,6 +15,7 @@ products.forEach(product => {
     productsContainerProduits.appendChild(product.toCardHtml());
 })
 
+//POURQUOI CA NE MARCHE PAS ? On ne peut utiliser qu'une seule fois la méthode toHtml ?
 /* for(let i = 0; i < 4; i++) {
     productsContainerIndex.appendChild(products[i].toCardHtml());
 } */
@@ -33,11 +34,4 @@ btnAddToCart.addEventListener('click', () => {
     });
 });
 
-/* const btnsRemoveProduct = document.querySelectorAll('.btn-remove');
-btnsRemoveProduct.forEach((btnRemoveProduct, index) => {
-    btnRemoveProduct.addEventListener('click', () => {
-        mainCart.removeChild(lineItem[index]);
-        console.log(lineItem[index]);
-    })
-}) */
-
+mainCart.appendChild(cart.toTotalCartHtml());
