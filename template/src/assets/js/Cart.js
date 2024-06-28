@@ -1,5 +1,8 @@
 import LineItem from "./LineItem.js"
 
+//Faire fonctionner le total
+//Ne pas faire disparaitre le lineItem à chaque clic sur le - mais quand la quantité = 0
+
 export default class Cart{
     /**
      * @param {LineItem[]} lineItems
@@ -42,13 +45,15 @@ export default class Cart{
         }
     }
 
-    //Code qui ne cible pas exactement le bon produit
+
+    //À vérifier le code obsolète
     addOrUpdateLineItem(product) {
         let existingLineItem = this.findLineItem(product);
         if (existingLineItem) {
             existingLineItem.quantity ++;
-            //Le selecteur n'est pas le bon, il retourne toujours le premier lineItem
-            document.querySelector('.quantity').textContent = existingLineItem.quantity;
+            for(let quantity of document.querySelectorAll('.quantity')){
+                quantity.textContent = existingLineItem.quantity;
+            }
         } else {
             const lineItem = new LineItem(product, 1);
             this.lineItems.push(lineItem);
@@ -58,8 +63,10 @@ export default class Cart{
         }
     } 
 
+
     removeLineItem(lineItem) {
         const index = this.lineItems.indexOf(lineItem);
+        //(lineItem.quantity === 0)
         if (index > -1) {
             this.lineItems.splice(index, 1);
         }

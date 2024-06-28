@@ -1,5 +1,9 @@
 import Product from "./Product.js";
 
+//Faire fonctionner les quantités
+//Faire fonctionner les boutons + et -
+
+
 export default class LineItem {
     /**
      * @param {Product} product
@@ -24,6 +28,7 @@ export default class LineItem {
         const btnRemoveQuantity = document.createElement('button');
         const quantityHtml = document.createElement('p');
         const btnAddQuantity = document.createElement('button');
+        const subTotalHtml = document.createElement('p');
 
         imgCartHtml.setAttribute('src', this.product.img);
         imgCartHtml.setAttribute('alt', this.product.title);
@@ -33,6 +38,7 @@ export default class LineItem {
         btnRemoveQuantity.textContent = '-';
         quantityHtml.textContent = this.quantity;
         btnAddQuantity.textContent = '+';
+        subTotalHtml.textContent = 'Sous-total: $' + this.total;
 
         divCart.className = 'flex gap-3 p-3 items-center border-b order-1';
         imgCartHtml.className = 'w-[80px]';
@@ -49,10 +55,10 @@ export default class LineItem {
             this.removeFromCart();
         });
 
-        //À FAIRE
-/*         btnAddQuantity.addEventListener('click', () => {
-            this.addFromCart();
-        }); */
+        //Ne fonctionne pas
+        btnAddQuantity.addEventListener('click', () => {
+            this.quantity++;
+        }); 
 
         divCart.appendChild(imgCartHtml);
         divCart.appendChild(divTextCartHtml);
@@ -63,6 +69,7 @@ export default class LineItem {
         playWithQuantity.appendChild(btnRemoveQuantity);
         playWithQuantity.appendChild(quantityHtml);
         playWithQuantity.appendChild(btnAddQuantity);
+        playWithQuantity.appendChild(subTotalHtml);
 
         //Pris sur internet
     this.element = divCart;

@@ -37,7 +37,7 @@ export default class Product {
         cardHtml.className = "carte w-full";
         divCardHtml.className = "card min-h-full bg-white rounded-lg p-4 shadow-lg items-center text-center border-2 border-lightOrange flex flex-col justify-end gap-2";
         divImg.className = "p-6 lg:p-10";
-        imgHtml.className = "mx-auto mb-4 max-w-[100%]";
+        imgHtml.className = "mx-auto mb-4 max-w-[300px]";
         titleHtml.className = "text-xl font-bold";
         descHtml.className = 'italic text-sm';
         priceHtml.className = "font-bold text-lg";
