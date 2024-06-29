@@ -24,13 +24,13 @@
                   <a href="index.html"><img class="img-fluid w-[80px]" src="./assets/img/logo.jpg" alt="logo"></a>
                   <p class="m-0 text-md font-serif">Un Zeste de Clémentine</p>
               </div>
-              <div class="hidden lg:flex items-center">
+              <nav class="hidden lg:flex items-center">
                   <ul class="list-none gap-3 m-0 flex">
                     <li><a class="no-underline text-dark-typo hover:underline" href="./produits.html">Produits</a></li>
                     <li><a class="no-underline text-dark-typo hover:underline" href="./apropos.html">À propos</a></li>
                     <li><a class="no-underline text-dark-typo hover:underline" href="./contact.html">Nous contacter</a></li>
                   </ul>
-              </div>
+              </nav>
           </div>
           <div class="input-search">
             <div class="input-icon w-100%">
@@ -92,9 +92,9 @@
         </div>
       </div>
       <div class="banner-right order-1 md:order-2 md:items-center md:w-1/2 flex flex-col justify-center p-8">
-        <picture class="img-banner max-w-[100%] md:min-w-[300px] h-auto">
+        <picture class="img-banner md:min-w-[300px] h-auto">
           <source media="(min-width: 768px)" srcset="./assets/img/img-banner-desktop.png">
-          <img class="img__banner max-w-[400px]" src="./assets/img/img-banner-mobile.png" alt="Photo des nouveaux biscuits">
+          <img class="img__banner max-w-[100%]" src="./assets/img/img-banner-mobile.png" alt="Photo des nouveaux biscuits">
         </picture>
       </div>
     </div>
@@ -118,7 +118,48 @@
         <p class="text-3xl font-bold text-center">Nos produits vedette</p>
         <div class="products-container-index grid grid-cols-4 gap-3 shadow-lg"></div>
     </div>
-</main> 
+  </main> 
+
+  <footer class="bg-orange flex flex-col justify-between gap-6 p-6">
+    <div class="footer-ligne1 grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-center">
+      <div class="footer-logo flex justify-center items-center w-[350px] bg-white px-7 rounded-lg">
+        <a href="index.html"><img class="img-fluid w-[80px]" src="./assets/img/logo.jpg" alt="logo"></a>
+        <p class="m-0 text-md font-serif">Un Zeste de Clémentine</p>
+    </div>
+      <div class="footer-menu">
+        <nav>
+          <ul class="list-none gap-3 m-0 flex flex-col md:text-center">
+            <li><a class="no-underline text-dark-typo hover:underline" href="./produits.html">Produits</a></li>
+            <li><a class="no-underline text-dark-typo hover:underline" href="./apropos.html">À propos</a></li>
+            <li><a class="no-underline text-dark-typo hover:underline" href="./contact.html">Nous contacter</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="infolettre flex flex-col">
+        <label for="#infolettre">Inscris toi à l'infolettre !</label>
+        <input id="infolettre" class="w-[250px] md:w-[300px] px-3 py-1 border rounded-full" type="text">
+      </div>
+    </div>
+    <div class="footer-ligne2 grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-end">
+      <div class="footer-contact lg:order-3">
+        <p class="font-bold text-lg">Contact</p>
+        <p>77 Rue des Gâteaux, Cake Land</p>
+        <p>418-123-4567</p>
+      </div>
+      <div class="follow-us flex flex-col lg:flex-row gap-3 lg:items-end lg:order-2">
+        <p>Suis-nous sur les réseaux sociaux !</p>
+        <div class="flex gap-3">
+          <a href="#"><img class="w-6 hover:rotate-6 hover:shadow-lg" src="./assets/img/facebook.png" alt="Icône Facebook"></a>
+          <a href="#"><img class="w-6 hover:rotate-6 hover:shadow-lg" src="./assets/img/instagram.png" alt="Icône Instagram"></a>
+          <a href="#"><img class="w-6 hover:rotate-6 hover:shadow-lg" src="./assets/img/twitter.png" alt="Icône Twitter"></a>
+        </div>
+      </div>
+      <div class="copyright flex gap-2 items-center lg:order-1">
+        <img class="w-6" src="./assets/img/droits-dauteur.png" alt="Icone droits d'auteurs">
+        <p>Copyright : Clémentine Digout</p>
+      </div>
+    </div>
+  </footer>
 
   </body>
 </html>

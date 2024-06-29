@@ -46,7 +46,7 @@ export default class LineItem {
         nameCartHtml.className = 'font-bold text-lg';
         descCartHtml.className = 'italic text-sm';
         priceCartHtml.className = 'font-bold';
-        playWithQuantity.className = 'flex gap-6 mt-2'
+        playWithQuantity.className = 'flex gap-6 mt-2 items-center'
         btnRemoveQuantity.className = 'btn-remove font-bold text-lg border px-2 rounded-full transition-all duration-300 hover:bg-orange';
         quantityHtml.className = 'quantity';
         btnAddQuantity.className = 'btn-add font-bold text-lg border px-2 rounded-full transition-all duration-300 hover:bg-orange';
